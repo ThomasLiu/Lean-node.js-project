@@ -79,6 +79,7 @@ vim /etc/rc.d/init.d/redis
 * 第7行改成 ```EXEC=/usr/local/redis/bin/redis-server ```
 * 第8行改成 ```CLIEXEC=/usr/local/redis/bin/redis-cli ```
 * 第20行改成 ```$EXEC $CONF & ```
+<br>
 最后的内容大致为
 ```
 #!/bin/sh
