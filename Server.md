@@ -124,6 +124,20 @@ case "$1" in
         ;;
 esac
 ```
+将redis配置文件拷贝到/etc/redis/${REDISPORT}.conf
+```
+mkdir /etc/redis
+cp /usr/local/src/redis/redis.conf /etc/redis/6379.conf
+chkconfig --add redis
+service redis start 
+```
+将Redis的命令所在目录添加到系统参数PATH中 
+```
+vi /etc/profile
+//在最后行追加: export PATH="$PATH:/usr/local/redis/bin"
+. /etc/profile 
+//之后就可以直接运行 redis-cli 来查看redis 的缓存情况了
+```
 
 
 
