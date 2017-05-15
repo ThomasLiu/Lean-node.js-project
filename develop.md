@@ -9,6 +9,9 @@
 * [深入 ES6 - 模块](https://braavos.me/blog/2015/09/20/modules/)
 
 ### 框架
+* [Koajs2](http://koajs.com)
+* [expressjs](http://expressjs.com)
+> 这两者的选择我个人是比较偏好**koa**的，因为koa更贴近es6的风格，express在我写这个汇总的时候还是普通的function模式，需要用q、bluebird、co之类东西来做异步回调控制 
 
 ### jade view层模版引擎
 * [官方API介绍](https://pugjs.org/api/getting-started.html)
@@ -17,3 +20,12 @@
 
 ### jspm 前端js模块管理
 * [官网](http://jspm.io) 看视频了解jspm用法和概念
+
+### less
+* [官网](http://lesscss.org)
+
+### 数据库MOD
+* [mysql Sequelize 中文api](https://itbilu.com/nodejs/npm/VkYIaRPz-.html)
+* [mongoDB mongoosejs](http://mongoosejs.com)
+
+
