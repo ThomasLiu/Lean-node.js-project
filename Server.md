@@ -1,6 +1,6 @@
 # Server for CentOS 7.2 64位
 
-### 安装git
+### 安装 [git](https://github.com/git/git) 管理项目版本
 ```
 sudo yum update
 sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
@@ -39,7 +39,7 @@ yum list gcc-c++
 yum install gcc-c++.x86_64
 ```
 
-### 安装 [n](https://github.com/tj/n) 来管理node.js 的版本
+### 安装 [n](https://github.com/tj/n) 管理node.js 的版本
 ```
 curl -L https://git.io/n-install | bash
 
@@ -53,5 +53,28 @@ node -v
 npm -v 
 //检查安装后的npm 的版本
 ```
+
+### 安装 [redies](https://redis.io) 管理缓存
+[教程](http://www.cnblogs.com/_popc/p/3684835.html)
+先在[redis的官网](https://redis.io/download)查看最新的redis版本，以下以3.2.8版为例子
+```
+mkdir /usr/local/redis
+cd /usr/local/src 
+wget http://download.redis.io/releases/redis-3.2.8.tar.gz
+tar xzf redis-3.2.8.tar.gz
+ln -s redis-3.2.8 redis
+cd redis
+make PREFIX=/usr/local/redis install
+cd /usr/local/redis/bin
+ls
+//看到这些文件代表安装成功 redis-benchmark  redis-check-aof  redis-check-dump  redis-cli  redis-server
+```
+##### 将redis做成一个服务
+```
+cp /usr/local/src/redis/utils/redis_init_script /etc/rc.d/init.d/redis
+vim /etc/rc.d/init.d/redis
+```
+修改里面的内容
+* 第2行 ```#chkconfig: 2345 80 90 ```
 
 
