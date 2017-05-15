@@ -45,7 +45,7 @@ curl -L https://git.io/n-install | bash
 
 . ~/.bashrc
 ```
-##### 使用n来安装最新的node.js
+#### 使用n来安装最新的node.js
 ```
 n latest
 node -v
@@ -69,7 +69,7 @@ cd /usr/local/redis/bin
 ls
 //看到这些文件代表安装成功 redis-benchmark  redis-check-aof  redis-check-dump  redis-cli  redis-server
 ```
-##### 将redis做成一个服务
+#### 将redis做成一个服务
 ```
 cp /usr/local/src/redis/utils/redis_init_script /etc/rc.d/init.d/redis
 vim /etc/rc.d/init.d/redis
