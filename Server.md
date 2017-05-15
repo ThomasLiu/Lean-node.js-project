@@ -39,5 +39,6 @@ yum list gcc-c++
 yum install gcc-c++.x86_64
 ```
 
-### 安装n 来管理node.js 的版本
+### 安装 [n](https://github.com/tj/n) 来管理node.js 的版本
+
 
