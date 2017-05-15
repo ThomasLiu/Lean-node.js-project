@@ -31,3 +31,13 @@ git --version
 //这个时候就应该是 2.9.2 了
 
 ```
+
+
+### 安装 g++
+```
+yum list gcc-c++
+yum install gcc-c++.x86_64
+```
+
+### 安装n 来管理node.js 的版本
+
