@@ -187,3 +187,15 @@ make install
 gm -version
 ```
 
+### 安装 [PM2](https://github.com/Unitech/pm2) 进行node.js的项目管理
+```
+npm install -g pm2
+```
+##### 进行需要发布的项目
+```
+NODE_ENV=production pm2 start bin/www -i 0 --name "projectName"
+```
+##### 进行需要发布测试的项目
+```
+NODE_ENV=test pm2 start bin/www -i 0 --name "projectName"
+```
