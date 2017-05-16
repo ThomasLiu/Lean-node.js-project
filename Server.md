@@ -182,3 +182,18 @@ NODE_ENV=production pm2 start bin/www -i 0 --name "projectName"
 ```
 NODE_ENV=test pm2 start bin/www -i 0 --name "projectName"
 ```
+
+
+### 常用Linux 命令
+```
+find / -type f -name "*.log" | xangs grep "ERROR" //从根目录开始查找所有扩展名为.log的文本文件，并找出包含”ERROR”的行
+rm -rf test //删除test 文件夹及内部的所有文件
+
+//Copy 本地文件 /etc/eva.log, 到远程机器 sysB, 用户
+//user 的家目录下 
+scp /etc/eva.log user@sysB:/home/user
+//copy 远程机器 sysB 上的文件 /home/uesr/eva.log, 到本地的 /etc 目录下 , 并保持文件属性不变
+scp -p user@sysB:/home/uesr/eva.log /etc
+//copy sysB 上的目录 /home/user， 到本地 /home/user/tmp, <new dir,/home/user/tmp/user>
+scp -r user@sysB:/home/user /home/user/tmp
+```
