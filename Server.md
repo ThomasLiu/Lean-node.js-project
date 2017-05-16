@@ -161,15 +161,19 @@ cd  /usr/local/nginx/sbin
 //nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful
 //显示以上的东西就ok了
 ```
-启动
+##### 启动
 ```
 /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
 ```
-重启
+##### 重启
 ```
 /usr/local/nginx/sbin/nginx -s reload
 ```
-在浏览器输入服务器的ip可以访问到nginx的页面就是成功了
+##### 在浏览器输入服务器的ip可以访问到nginx的页面就是成功了
+##### 修改配置
+```
+vi /usr/local/nginx/conf/nginx.conf
+```
 
 ### 安装 [GraphicsMagick](http://www.graphicsmagick.org/INSTALL-unix.html) 用来做图片处理
 ```
