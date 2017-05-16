@@ -62,7 +62,7 @@ mkdir /usr/local/redis
 cd /usr/local/src 
 wget http://download.redis.io/releases/redis-3.2.8.tar.gz
 tar xzf redis-3.2.8.tar.gz
-ln -s redis-3.2.8 redis
+cd redis-3.2.8 redis
 cd redis
 make PREFIX=/usr/local/redis install
 cd /usr/local/redis/bin
@@ -140,6 +140,27 @@ vi /etc/profile
 //之后就可以直接运行 redis-cli 来查看redis 的缓存情况了
 ```
 
+### 安装 [Nginx](http://nginx.org/) 高性能的 HTTP 和 反向代理 服务器
+* [教程](http://www.linuxidc.com/Linux/2016-08/134110.htm)
+```
+mkdir /usr/local/nginx
+mkdir /data0/logs/nginx
+groupadd  www
+useradd -g  www www -s /bin/false
+
+cd /usr/local/src/
+wget http://nginx.org/download/nginx-1.12.0.tar.gz
+tar xzf nginx-1.12.0.tar.gz 
+cd nginx-1.12.0
+./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_realip_module
+make
+make install
+cd  /usr/local/nginx/sbin
+./nginx -t
+//nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok
+//nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful
+//显示以上的东西就ok了
+```
 
 
 ### 安装 [GraphicsMagick](http://www.graphicsmagick.org/INSTALL-unix.html) 用来做图片处理
