@@ -142,3 +142,15 @@ vi /etc/profile
 
 
 
+### 安装 [GraphicsMagick](http://www.graphicsmagick.org/INSTALL-unix.html) 用来做图片处理
+```
+cd /usr/local/src 
+wget https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.25/GraphicsMagick-1.3.25.tar.gz
+tar xzf GraphicsMagick-1.3.25.tar.gz
+cd GraphicsMagick-1.3.25.tar.gz
+./configure
+make
+make install
+gm -version
+```
+
