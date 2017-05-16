@@ -41,6 +41,7 @@ yum install gcc-c++.x86_64
 
 ### 安装 [n](https://github.com/tj/n) 管理node.js 的版本
 ```
+export N_PREFIX=/usr/local/n
 curl -L https://git.io/n-install | bash
 
 . ~/.bashrc
