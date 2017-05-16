@@ -141,38 +141,21 @@ vi /etc/profile
 ```
 
 ### 安装 [Nginx](http://nginx.org/) 高性能的 HTTP 和 反向代理 服务器
-* [教程](http://www.linuxidc.com/Linux/2016-08/134110.htm)
 ```
-mkdir /usr/local/nginx
-mkdir /data0/logs/nginx
-groupadd  www
-useradd -g  www www -s /bin/false
-
-cd /usr/local/src/
-wget http://nginx.org/download/nginx-1.12.0.tar.gz
-tar xzf nginx-1.12.0.tar.gz 
-cd nginx-1.12.0
-./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_realip_module
-make
-make install
-cd  /usr/local/nginx/sbin
-./nginx -t
-//nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok
-//nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful
-//显示以上的东西就ok了
+yum install nginx
 ```
 ##### 启动
 ```
-/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+service nginx restart
 ```
 ##### 重启
 ```
-/usr/local/nginx/sbin/nginx -s reload
+sudo service nginx reload
 ```
 ##### 在浏览器输入服务器的ip可以访问到nginx的页面就是成功了
 ##### 修改配置
 ```
-vi /usr/local/nginx/conf/nginx.conf
+vi /etc/nginx/nginx.conf
 ```
 
 ### 安装 [GraphicsMagick](http://www.graphicsmagick.org/INSTALL-unix.html) 用来做图片处理
