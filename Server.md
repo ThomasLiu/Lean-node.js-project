@@ -197,4 +197,14 @@ scp /etc/eva.log user@sysB:/home/user
 scp -p user@sysB:/home/uesr/eva.log /etc
 //copy sysB 上的目录 /home/user， 到本地 /home/user/tmp, <new dir,/home/user/tmp/user>
 scp -r user@sysB:/home/user /home/user/tmp
+
+更改文件归宿者
+chown 用户名 文件名
+chown -R 用户名 文件名    全部文件
+
+更改文件权限组
+chgrp 组名 文件名
+
 ```
+
+
