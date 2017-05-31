@@ -39,6 +39,15 @@ yum list gcc-c++
 yum install gcc-c++.x86_64
 ```
 
+### 将gcc 升级到支持C++11的模式
+```
+sudo yum install centos-release-scl 
+sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
+sudo yum install devtoolset-3-gcc-c++
+scl enable devtoolset-3 bash
+echo "source /opt/rh/devtoolset-3/enable" >>/etc/profile
+```
+
 ### 安装 [n](https://github.com/tj/n) 管理node.js 的版本
 ```
 export N_PREFIX=/usr/local/n
