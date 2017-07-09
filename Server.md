@@ -214,6 +214,15 @@ chown -R 用户名 文件名    全部文件
 更改文件权限组
 chgrp 组名 文件名
 
+添加用户
+adduser www
+
+查看进程
+ps aux | grep 进程名
+
+修改权限
+chmod 777 文件名
+
 ```
 
 
