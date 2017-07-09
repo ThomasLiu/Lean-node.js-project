@@ -192,6 +192,10 @@ NODE_ENV=production pm2 start bin/www -i 0 --name "projectName"
 ```
 NODE_ENV=test pm2 start bin/www -i 0 --name "projectName"
 ```
+##### 日志分割
+```
+pm2 install pm2-logrotate
+```
 
 
 ### 常用Linux 命令
