@@ -233,6 +233,11 @@ ClientAliveInterval 60 ＃server每隔60秒发送一次请求给client，然后c
 ClientAliveCountMax 300 ＃server发出请求后，客户端没有响应得次数达到300，就自动断开连接
 然后保存后执行
 service sshd reload
+再
+vim .bash_profile
+添加
+export TMOUT=1000000
+到最后
 ```
 
 
