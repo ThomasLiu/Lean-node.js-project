@@ -180,6 +180,11 @@ make install
 gm -version
 ```
 
+### 安装 [ImageMagick](https://www.imagemagick.org) 用来做图片处理
+```
+yum install ImageMagick
+```
+
 ### 安装 [PM2](https://github.com/Unitech/pm2) 进行node.js的项目管理
 ```
 npm install -g pm2
