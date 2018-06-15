@@ -202,6 +202,12 @@ NODE_ENV=test pm2 start bin/www -i 0 --name "projectName"
 pm2 install pm2-logrotate
 ```
 
+##### 常见问题
+```
+$ pm2 list
+[PM2] Spawning PM2 daemon with pm2_home=/home/sankuai/.pm2
+```
+一般是Node服务因为死循环而日志把机器的磁盘给打满了，导致了PM2的守护进程无法启动。可以通过先检查机器的磁盘空间是否给占满。如果是占满了，可以考虑对PM的部分Log日志进行删除。
 
 ### 常用Linux 命令
 ```
