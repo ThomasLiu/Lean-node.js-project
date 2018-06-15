@@ -243,6 +243,9 @@ vim .bash_profile
 添加
 export TMOUT=1000000
 到最后
+
+查看磁盘空间
+df -hl
 ```
 
 
