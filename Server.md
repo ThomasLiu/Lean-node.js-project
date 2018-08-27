@@ -220,10 +220,10 @@ pm2默认运行目录是取当前用户的 $HOME/.pm2 ，这就造成每个用�
 可以通过指定一个环境变量 PM2_HOME 来指定 .pm2 的位置，把它指定到 /var/run/pm2 方便所有用户访问。
 ```
 vi /etc/profile 
-```
-在文件最后加上
-```
-export PM2_HOME="/var/run/pm2"
+#在文件最后加上: export PM2_HOME="/var/run/pm2"
+
+source /etc/profile
+# 保存修改后刷新配置
 ```
 然后在安装pm2
 ```
