@@ -140,15 +140,8 @@ esac
 mkdir /etc/redis
 cp /usr/local/src/redis/redis.conf /etc/redis/6379.conf
 chkconfig --add redis
-service redis start 
 ```
-将Redis的命令所在目录添加到系统参数PATH中 
-```
-vi /etc/profile
-//在最后行追加: export PATH="$PATH:/usr/local/redis/bin"
-. /etc/profile 
-//之后就可以直接运行 redis-cli 来查看redis 的缓存情况了
-```
+
 设置Redis的最大内存
 ```
 vi /etc/redis/6379.conf
@@ -173,6 +166,17 @@ vi /etc/redis/6379.conf
 # volatile-ttl -> remove the key with the nearest expire time (minor TTL) 根据最近过期时间来删除（辅以TTL
 # noeviction -> don't expire at all, just return an error on write operations 谁也不删，直接在写操作时返回错误。
 maxmemory-policy volatile-lru
+```
+启动 redis
+```
+service redis start 
+```
+将Redis的命令所在目录添加到系统参数PATH中 
+```
+vi /etc/profile
+//在最后行追加: export PATH="$PATH:/usr/local/redis/bin"
+. /etc/profile 
+//之后就可以直接运行 redis-cli 来查看redis 的缓存情况了
 ```
 
 
