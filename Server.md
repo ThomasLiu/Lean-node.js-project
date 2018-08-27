@@ -186,6 +186,16 @@ yum install ImageMagick
 ```
 
 ### 安装 [PM2](https://github.com/Unitech/pm2) 进行node.js的项目管理
+pm2默认运行目录是取当前用户的 $HOME/.pm2 ，这就造成每个用户都会启动一个新的 pm2 守护进程，也无法看到别的用户运行的node进程。
+可以通过指定一个环境变量 PM2_HOME 来指定 .pm2 的位置，把它指定到 /var/run/pm2 方便所有用户访问。
+```
+vi /etc/profile 
+```
+在文件最后加上
+```
+export PM2_HOME="/var/run/pm2"
+```
+然后在安装pm2
 ```
 npm install -g pm2
 ```
