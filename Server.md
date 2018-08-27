@@ -292,6 +292,12 @@ export TMOUT=1000000
 
 查看磁盘空间
 df -hl
+
+# 对某个文件添加写权限
+chmod u+w /home/test
+
+# 对某个文件移除写权限
+chmod u-w /home/test
 ```
 
 
