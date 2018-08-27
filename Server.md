@@ -149,6 +149,32 @@ vi /etc/profile
 . /etc/profile 
 //之后就可以直接运行 redis-cli 来查看redis 的缓存情况了
 ```
+设置Redis的最大内存
+```
+vi /etc/redis/6379.conf
+//在最后行追加:
+# In short... if you have slaves attached it is suggested that you set a lower
+# limit for maxmemory so that there is some free RAM on the system for slave
+# output buffers (but this is not needed if the policy is 'noeviction').
+#
+# maxmemory <bytes>
+maxmemory 268435456
+```
+一般推荐Redis设置内存为最大物理内存的四分之三
+如果设置了maxmemory，一般都要设置过期策略
+```
+vi /etc/redis/6379.conf
+//在最后行追加:
+# LRU是Least Recently Used 近期最少使用算法
+# volatile-lru -> remove the key with an expire set using an LRU algorithm 根据LRU算法生成的过期时间来删除。
+# allkeys-lru -> remove any key accordingly to the LRU algorithm 根据LRU算法删除任何key
+# volatile-random -> remove a random key with an expire set 根据过期设置来随机删除key。
+# allkeys-random -> remove a random key, any key 无差别随机删。
+# volatile-ttl -> remove the key with the nearest expire time (minor TTL) 根据最近过期时间来删除（辅以TTL
+# noeviction -> don't expire at all, just return an error on write operations 谁也不删，直接在写操作时返回错误。
+maxmemory-policy volatile-lru
+```
+
 
 ### 安装 [Nginx](http://nginx.org/) 高性能的 HTTP 和 反向代理 服务器
 ```
