@@ -298,6 +298,14 @@ chmod u+w /home/test
 
 # 对某个文件移除写权限
 chmod u-w /home/test
+
+# 查看环境变量
+echo $PATH
+# 设置临时环境变量
+export PATH="xxxxxx"
+# 清除环境变量
+unset $PATH
+
 ```
 
 
