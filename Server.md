@@ -64,6 +64,13 @@ npm -v
 //检查安装后的npm 的版本
 ```
 
+#### 使用nrm管理npm的源
+```
+npm install -g nrm
+nrm ls
+nrm use taobao
+```
+
 ### 安装 [redies](https://redis.io) 管理缓存
 [教程](http://www.cnblogs.com/_popc/p/3684835.html)
 先在[redis的官网](https://redis.io/download)查看最新的redis版本，以下以3.2.8版为例子
