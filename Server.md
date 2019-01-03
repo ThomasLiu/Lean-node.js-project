@@ -79,7 +79,7 @@ mkdir /usr/local/redis
 cd /usr/local/src 
 wget http://download.redis.io/releases/redis-3.2.8.tar.gz
 tar xzf redis-3.2.8.tar.gz
-cd redis-3.2.8 redis
+mv redis-3.2.8 redis
 cd redis
 make PREFIX=/usr/local/redis install
 cd /usr/local/redis/bin
