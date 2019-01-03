@@ -15,7 +15,7 @@ make prefix=/usr/local/git all
 sudo make prefix=/usr/local/git install
 
 git --version
-//如果这个时候 git 的版本还是2.9.2 继续执行下面的
+//如果这个时候 git 的版本还不是2.9.2 继续执行下面的
 
 whereis git
 //正常来说会输出 git: /usr/bin/git /usr/local/git /usr/share/man/man1/git.1.gz
