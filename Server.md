@@ -259,6 +259,11 @@ $ pm2 list
 ### 常用Linux 命令
 ```
 find / -type f -name "*.log" | xangs grep "ERROR" //从根目录开始查找所有扩展名为.log的文本文件，并找出包含”ERROR”的行
+
+grep '\[ERROR\] \/' position-out-3.log //匹配对应内容的行
+
+tail -n 100 position-out-3.log //显示最后100行
+ 
 rm -rf test //删除test 文件夹及内部的所有文件
 
 //Copy 本地文件 /etc/eva.log, 到远程机器 sysB, 用户
