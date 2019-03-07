@@ -271,10 +271,13 @@ server {
 
 ### 配置[SSL](https://baike.baidu.com/item/ssl/320778?fr=aladdin) 使用[https](https://baike.baidu.com/item/https)
 相关资料 
+
 [八大免费SSL证书-给你的网站免费添加Https安全加密](https://www.cnblogs.com/lxwphp/p/8289337.html)
+
 [https网页加载http资源导致的页面报错及解决方案](http://www.cnblogs.com/yougewe/p/7440008.html)
 
 其中我选用的是 [Let’s Encrypt](https://letsencrypt.org) 的证书，因为安装和使用都非常简单。
+
 首先下载 [letsencrypt](https://github.com/letsencrypt/letsencrypt), 可以在服务器直接用`git clone`来把整个项目下载。
 ```
 $ cd /home
@@ -289,9 +292,11 @@ $ ./certbot-auto --help # 查看可用的命令
 $ ./certbot-auto --nginx -d example.com -d www.example.com -d other.example.net
 ```
 命令运行过程会需要你填写一个邮箱地址和同意协议。
+
 如果安装失败会有相应的提示。按照提示来修改就好了。比如它会把证书安装在某一个路径，如果这个路径不存在，就会安装失败。需要你先手动创建对应的路径。再重新运行上面的命令就可以了。
 
 最后还会引导你选择是只保留https请求，还是http和https兼容，所有的http都会自动重定向到https。根据你具体需求选择就好了。
+
 配置成功后，记得开放 443 端口。
 ```
 $ firewall-cmd --zone=public --list-ports # 查看防火墙目前开的端口
