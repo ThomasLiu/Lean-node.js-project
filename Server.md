@@ -205,6 +205,101 @@ sudo service nginx reload
 vi /etc/nginx/nginx.conf
 ```
 
+### 配置 [gzip](https://blog.csdn.net/baidu_35407267/article/details/77141871) 来优化你的网站
+[相关资料](https://blog.csdn.net/huangbaokang/article/details/79931429)
+```
+$ vi /etc/nginx/nginx.conf
+```
+大概配置如下
+```
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+
+    gzip  on;   #开启gzip
+    gzip_min_length 1k; #低于1kb的资源不压缩
+    gzip_comp_level 3; #压缩级别【1-9】，越大压缩率越高，同时消耗cpu资源也越多，建议设置在4左右。
+    gzip_types text/plain application/javascript application/x-javascript text/javascript text/xml text/css;  #需要压缩哪些响应类型的资源，多个空格隔开。不建议压缩图片，下面会讲为什么。
+    gzip_disable "MSIE [1-6]\.";  #配置禁用gzip条件，支持正则。此处表示ie6及以下不启用gzip（因为ie低版本不支持）
+    gzip_vary on;  #是否添加“Vary: Accept-Encoding”响应头
+
+    server {
+        listen       80;
+        server_name  localhost;
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+
+}
+```
+针对单个 配置的话如下 （以下配置还包含，服务器缓存 ）
+```
+server {
+       server_name www.hiredchina.com;
+       location /{
+            proxy_pass http://127.0.0.1:3103;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       }
+       location  ~ .*\.(?i)(woff|ttf|js|css|gif|jpg|jpeg|png|bmp|ico|html)$ {
+            proxy_pass http://127.0.0.1:3103;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_cache cache_one;
+            proxy_cache_valid 200 7d;
+            proxy_cache_valid 301 1d;
+            proxy_cache_valid any 1m;
+            add_header Cache-by "nginx";
+            gzip on;
+            gzip_comp_level 9;
+            gzip_min_length 1024;
+            gzip_types application/json text/plain application/x-javascript text/css text/javascript application/javascript;
+            expires 7d;
+      }
+}
+```
+
+### 配置[SSL](https://baike.baidu.com/item/ssl/320778?fr=aladdin) 使用[https](https://baike.baidu.com/item/https)
+相关资料 
+[八大免费SSL证书-给你的网站免费添加Https安全加密](https://www.cnblogs.com/lxwphp/p/8289337.html)
+[https网页加载http资源导致的页面报错及解决方案](http://www.cnblogs.com/yougewe/p/7440008.html)
+
+其中我选用的是 [Let’s Encrypt](https://letsencrypt.org) 的证书，因为安装和使用都非常简单。
+首先下载 [letsencrypt](https://github.com/letsencrypt/letsencrypt), 可以在服务器直接用`git clone`来把整个项目下载。
+```
+$ cd /home
+$ mkdir ssl
+$ cd ssl
+$ git clone https://github.com/letsencrypt/letsencrypt
+$ cd letsencrypt
+$ ./certbot-auto --help # 查看可用的命令
+```
+因为刚才我们配置好了 nginx，所以这里选择 nginx 的配置
+```
+$ ./certbot-auto --nginx -d example.com -d www.example.com -d other.example.net
+```
+命令运行过程会需要你填写一个邮箱地址和同意协议。
+如果安装失败会有相应的提示。按照提示来修改就好了。比如它会把证书安装在某一个路径，如果这个路径不存在，就会安装失败。需要你先手动创建对应的路径。再重新运行上面的命令就可以了。
+
+最后还会引导你选择是只保留https请求，还是http和https兼容，所有的http都会自动重定向到https。根据你具体需求选择就好了。
+配置成功后，记得开放 443 端口。
+```
+$ firewall-cmd --zone=public --list-ports # 查看防火墙目前开的端口
+$ firewall-cmd --zone=public --add-port=443/tcp --permanent    # --permanent永久生效，没有此参数重启后失效
+```
+
+#### 如果是使用在前端就处理完图片的话 就可以忽略 GraphicsMagick 和 ImageMagick
+
 ### 安装 [GraphicsMagick](http://www.graphicsmagick.org/INSTALL-unix.html) 用来做图片处理
 ```
 cd /usr/local/src 
@@ -221,6 +316,8 @@ gm -version
 ```
 yum install ImageMagick
 ```
+
+#### 如果是使用egg.js 就可以忽略 PM2
 
 ### 安装 [PM2](https://github.com/Unitech/pm2) 进行node.js的项目管理
 pm2默认运行目录是取当前用户的 $HOME/.pm2 ，这就造成每个用户都会启动一个新的 pm2 守护进程，也无法看到别的用户运行的node进程。
