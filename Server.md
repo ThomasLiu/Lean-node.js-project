@@ -280,6 +280,7 @@ server {
 
 首先下载 [letsencrypt](https://github.com/letsencrypt/letsencrypt), 可以在服务器直接用`git clone`来把整个项目下载。
 ```
+$ sudo yum install python2-certbot-nginx
 $ cd /home
 $ mkdir ssl
 $ cd ssl
