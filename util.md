@@ -17,4 +17,3 @@ http://api.k780.com:88/?app=qr.get&data=mrxn.net&level=L&size=6
 
 国外的：https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=mrxn.net
 
-更多的二维码分享可以参看：https://mrxn.net/free/261.html 
