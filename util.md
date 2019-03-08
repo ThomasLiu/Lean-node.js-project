@@ -10,10 +10,12 @@ http://s.jiathis.com/qrcode.php?url=https://mrxn.net
 
 http://qr.liantu.com/api.php?text=mrxn.net
 
-http://api.k780.com:88/?app=qr.get&data=mrxn.net&level=L&size=6
+http://api.k780.com/?app=qr.get&data=http://www.xsyrz.cn&level=L&size=11
 
 
 支持https的：
 
 国外的：https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=mrxn.net
+
+https://sapi.k780.com/?app=qr.get&level=L&size=6&data=http://www.xsyrz.cn
 
