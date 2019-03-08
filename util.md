@@ -12,8 +12,6 @@ http://qr.liantu.com/api.php?text=mrxn.net
 
 http://api.k780.com:88/?app=qr.get&data=mrxn.net&level=L&size=6
 
-http://pan.baidu.com/share/qrcode?w=150&h=150&url=mrxn.net
-
 
 支持https的：
 
