@@ -31,4 +31,6 @@
 * [mysql Sequelize 中文api](https://itbilu.com/nodejs/npm/VkYIaRPz-.html)
 * [mongoDB mongoosejs](http://mongoosejs.com)
 
+### Umi.js
+* [简易的umi入门教程](https://www.yuque.com/umijs/umi)
 
