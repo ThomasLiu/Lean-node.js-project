@@ -49,3 +49,7 @@ readfile $folder
 
 ---
 #### 定时任务
+
+
+
+更多 [linux 脚本学习](http://c.biancheng.net/shell/)
