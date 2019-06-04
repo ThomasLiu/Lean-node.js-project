@@ -14,7 +14,7 @@ echo hi
 保存后
 ```
 $ chmod +x ./test.sh  #给脚本添加执行权限
-./test.sh           #执行脚本文件
+$ ./test.sh           #执行脚本文件
 ```
 
 
