@@ -304,6 +304,14 @@ $ firewall-cmd --zone=public --list-ports # 查看防火墙目前开的端口
 $ firewall-cmd --zone=public --add-port=443/tcp --permanent    # --permanent永久生效，没有此参数重启后失效
 ```
 
+证书到期之后需要
+```
+$ ./certbot-auto certificates # 查看所有证书的状态
+```
+```
+$ ./certbot-auto renew # 更新所有的证书
+```
+
 #### 如果是使用在前端就处理完图片的话 就可以忽略 GraphicsMagick 和 ImageMagick
 
 ### 安装 [GraphicsMagick](http://www.graphicsmagick.org/INSTALL-unix.html) 用来做图片处理
