@@ -88,6 +88,7 @@ echo clean finish~
 ```
 保存后
 ```
+$ chmod +x ./cleanlog.sh
 $ vi /etc/crontab 
 ```
 在最后加上
