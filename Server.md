@@ -38,6 +38,17 @@ git --version
 
 ```
 
+### 生成git用的 SSH密钥
+
+```bash
+cd ~/.ssh # 看是否有密钥
+
+ssh-keygen -t rsa -C "abc@mail.com" # 这个邮箱是你的github 账号邮箱
+
+ssh-keygen -t rsa -C "liurongliang@belloai.com" # 会生成 id_rsa.pub
+
+cat id_rsa.pub # 复制到 github 的 https://github.com/settings/keys
+```
 
 ### 安装 g++
 ```
