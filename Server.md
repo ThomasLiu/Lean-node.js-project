@@ -5,6 +5,12 @@
 sudo yum update
 sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
 
+sudo yum install git
+```
+
+如果上面的不可以，可以试用通过仓库来安装
+
+```
 cd /home
 wget https://github.com/git/git/archive/v2.9.2.zip
 yum install -y unzip zip
